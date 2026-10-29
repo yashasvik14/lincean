@@ -1,0 +1,438 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1020">
+
+  <title>Lincean — Software Made Simple</title>
+  <meta name="description" content="Discover and download software from Lincean, including Novashare, a fast local network file transfer application for Windows.">
+
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #121a2d;
+      --panel-light: #18233a;
+      --text: #f4f7ff;
+      --muted: #aab6ce;
+      --accent: #79a7ff;
+      --border: rgba(255,255,255,.11);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: auto;
+    }
+
+    header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(11,16,32,.94);
+    }
+
+    nav {
+      min-height: 76px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.35rem;
+      font-weight: 750;
+      letter-spacing: -.5px;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 13px;
+      background: linear-gradient(135deg, #83b2ff, #8d76f5);
+      color: #10172b;
+      font-weight: 900;
+      font-size: 1.45rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      align-items: center;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .nav-links a:hover { color: white; }
+
+    .hero {
+      padding: 90px 0 76px;
+      text-align: center;
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(88,120,220,.22), transparent 65%);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 6px 13px;
+      border: 1px solid var(--border);
+      border-radius: 99px;
+      color: #b9d0ff;
+      font-size: .85rem;
+      background: rgba(121,167,255,.08);
+    }
+
+    h1 {
+      margin: 22px 0 16px;
+      font-size: clamp(2.5rem, 6vw, 4.6rem);
+      line-height: 1.08;
+      letter-spacing: -2px;
+    }
+
+    .gradient {
+      background: linear-gradient(90deg, #8ab8ff, #b5a2ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      max-width: 680px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    .actions {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-weight: 700;
+      border: 1px solid var(--border);
+      transition: transform .15s, background .15s;
+    }
+
+    .button:hover { transform: translateY(-2px); }
+
+    .button-primary {
+      color: #0b1020;
+      background: #a7c7ff;
+      border-color: #a7c7ff;
+    }
+
+    .button-secondary { background: rgba(255,255,255,.04); }
+
+    section { padding: 52px 0; }
+
+    .section-heading {
+      margin-bottom: 28px;
+    }
+
+    .section-heading h2 {
+      margin: 0 0 8px;
+      font-size: 2rem;
+      letter-spacing: -.7px;
+    }
+
+    .section-heading p { margin: 0; color: var(--muted); }
+
+    .app-card {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 28px;
+      padding: 30px;
+      background: linear-gradient(135deg, var(--panel), #10182a);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+    }
+
+    .app-heading {
+      display: flex;
+      align-items: center;
+      gap: 17px;
+      margin-bottom: 18px;
+    }
+
+    .app-icon {
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      width: 66px;
+      height: 66px;
+      border-radius: 17px;
+      background: var(--panel-light);
+      font-size: 2rem;
+      border: 1px solid var(--border);
+    }
+
+    .app-heading h3 { margin: 0; font-size: 1.5rem; }
+    .app-heading p { margin: 3px 0 0; color: var(--muted); }
+
+    .status {
+      display: inline-block;
+      color: #a8edc0;
+      background: rgba(72,190,119,.12);
+      border: 1px solid rgba(72,190,119,.25);
+      border-radius: 99px;
+      padding: 3px 9px;
+      font-size: .78rem;
+      margin-left: 7px;
+    }
+
+    .app-description { color: var(--muted); }
+
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin: 20px 0;
+    }
+
+    .feature {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.025);
+      border-radius: 8px;
+      padding: 6px 10px;
+      color: #d7e0f3;
+      font-size: .85rem;
+    }
+
+    .app-side {
+      min-width: 190px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: stretch;
+      gap: 12px;
+    }
+
+    .version { color: var(--muted); text-align: center; font-size: .9rem; }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .info-card {
+      padding: 22px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+    }
+
+    .info-card .symbol { font-size: 1.5rem; }
+    .info-card h3 { margin: 9px 0 6px; }
+    .info-card p { color: var(--muted); margin: 0; font-size: .94rem; }
+
+    .about-box {
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: 17px;
+      background: var(--panel);
+    }
+
+    .about-box p { color: var(--muted); margin-bottom: 0; }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 0;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    footer a:hover { color: white; }
+
+    @media (max-width: 720px) {
+      .hero { padding: 65px 0 50px; }
+      .nav-links { gap: 13px; font-size: .85rem; }
+      .app-card { grid-template-columns: 1fr; padding: 22px; }
+      .app-side { min-width: 0; }
+      .info-grid { grid-template-columns: 1fr; }
+      .app-heading h3 { font-size: 1.3rem; }
+      h1 { letter-spacing: -1px; }
+    }
+
+    @media (max-width: 420px) {
+      nav { align-items: flex-start; padding: 15px 0; flex-direction: column; }
+      .nav-links { width: 100%; justify-content: space-between; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <nav aria-label="Main navigation">
+        <a class="brand" href="#home">
+          <span class="brand-mark">L</span>
+          <span>Lincean</span>
+        </a>
+        <div class="nav-links">
+          <a href="#apps">Applications</a>
+          <a href="#about">About</a>
+          <a href="https://github.com/yashasvik14" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <span class="eyebrow">Independent Software Projects</span>
+        <h1>Useful software.<br><span class="gradient">Made simple.</span></h1>
+        <p>
+          Welcome to Lincean, the home of practical desktop applications
+          designed to make everyday work easier.
+        </p>
+        <div class="actions">
+          <a class="button button-primary" href="#apps">Explore Applications ↓</a>
+          <a class="button button-secondary"
+             href="https://github.com/yashasvik14"
+             target="_blank" rel="noopener noreferrer">Visit GitHub ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="apps">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Our Applications</h2>
+          <p>Explore available software and download the version you need.</p>
+        </div>
+
+        <article class="app-card">
+          <div>
+            <div class="app-heading">
+              <div class="app-icon" aria-hidden="true">📁</div>
+              <div>
+                <h3>Novashare <span class="status">Available</span></h3>
+                <p>Windows desktop application</p>
+              </div>
+            </div>
+
+            <p class="app-description">
+              Transfer files between computers on your local network.
+              Send individual files, multiple files, and folders while
+              preserving folder structure.
+            </p>
+
+            <div class="features">
+              <span class="feature">Local network transfer</span>
+              <span class="feature">Multiple files and folders</span>
+              <span class="feature">Transfer progress</span>
+              <span class="feature">Update checker</span>
+            </div>
+          </div>
+
+          <div class="app-side">
+            <div class="version">Latest release: <strong>1.0.1</strong><br>Windows 10/11 · x64</div>
+            <a class="button button-primary"
+               href="https://github.com/yashasvik14/Novashare-Releases/releases/latest"
+               target="_blank" rel="noopener noreferrer">
+              Download Novashare ↗
+            </a>
+            <a class="button button-secondary"
+               href="https://github.com/yashasvik14/Novashare-Releases/releases"
+               target="_blank" rel="noopener noreferrer">
+              All Releases
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-heading">
+          <h2>What We Focus On</h2>
+          <p>Practical software with a clear purpose.</p>
+        </div>
+
+        <div class="info-grid">
+          <article class="info-card">
+            <div class="symbol" aria-hidden="true">⚡</div>
+            <h3>Simple to Use</h3>
+            <p>Designed to keep everyday tasks straightforward and accessible.</p>
+          </article>
+          <article class="info-card">
+            <div class="symbol" aria-hidden="true">🛠️</div>
+            <h3>Practical Tools</h3>
+            <p>Applications focused on useful features and real-world needs.</p>
+          </article>
+          <article class="info-card">
+            <div class="symbol" aria-hidden="true">🔄</div>
+            <h3>Ongoing Updates</h3>
+            <p>Release information and downloads are published through GitHub.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="about-box">
+          <h2>About Lincean</h2>
+          <p>
+            Lincean is a central directory for software projects and their
+            official releases. This website will grow as more applications
+            become available. Each download links to the corresponding
+            project's public GitHub release page.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <span>© <span id="year">2026</span> Lincean. All rights reserved.</span>
+      <span>
+        <a href="https://github.com/yashasvik14/lincean">Website source</a>
+        &nbsp;·&nbsp;
+        <a href="https://github.com/yashasvik14/Novashare-Releases/releases">Novashare releases</a>
+      </span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
