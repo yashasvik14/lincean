@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -234,7 +233,29 @@
       gap: 12px;
     }
 
-    .version { color: var(--muted); text-align: center; font-size: .9rem; }
+    .version {
+      color: var(--muted);
+      text-align: center;
+      font-size: .9rem;
+    }
+
+    .download-link {
+      display: block;
+      text-align: center;
+      color: #b9d0ff;
+      font-size: .9rem;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .download-link:hover { color: white; }
+
+    .requirements {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: .82rem;
+      text-align: center;
+    }
 
     .info-grid {
       display: grid;
@@ -271,12 +292,11 @@
 
     .footer-content {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       flex-wrap: wrap;
       gap: 14px;
+      text-align: center;
     }
-
-    footer a:hover { color: white; }
 
     @media (max-width: 720px) {
       .hero { padding: 65px 0 50px; }
@@ -289,8 +309,16 @@
     }
 
     @media (max-width: 420px) {
-      nav { align-items: flex-start; padding: 15px 0; flex-direction: column; }
-      .nav-links { width: 100%; justify-content: space-between; }
+      nav {
+        align-items: flex-start;
+        padding: 15px 0;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        width: 100%;
+        justify-content: space-between;
+      }
     }
   </style>
 </head>
@@ -303,10 +331,10 @@
           <span class="brand-mark">L</span>
           <span>Lincean</span>
         </a>
+
         <div class="nav-links">
           <a href="#apps">Applications</a>
-          <a href="#about">About</a>
-          <a href="https://github.com/yashasvik14" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          <a href="#about">About Lincean</a>
         </div>
       </nav>
     </div>
@@ -317,15 +345,14 @@
       <div class="container">
         <span class="eyebrow">Independent Software Projects</span>
         <h1>Useful software.<br><span class="gradient">Made simple.</span></h1>
+
         <p>
           Welcome to Lincean, the home of practical desktop applications
           designed to make everyday work easier.
         </p>
+
         <div class="actions">
           <a class="button button-primary" href="#apps">Explore Applications ↓</a>
-          <a class="button button-secondary"
-             href="https://github.com/yashasvik14"
-             target="_blank" rel="noopener noreferrer">Visit GitHub ↗</a>
         </div>
       </div>
     </section>
@@ -357,21 +384,29 @@
               <span class="feature">Local network transfer</span>
               <span class="feature">Multiple files and folders</span>
               <span class="feature">Transfer progress</span>
-              <span class="feature">Update checker</span>
             </div>
           </div>
 
           <div class="app-side">
-            <div class="version">Latest release: <strong>1.0.1</strong><br>Windows 10/11 · x64</div>
+            <div class="version">
+              Latest x64: <strong>1.0.1</strong><br>
+              Latest x86: <strong>1.0.1</strong>
+            </div>
+
             <a class="button button-primary"
                href="https://github.com/yashasvik14/Novashare-Releases/releases/download/v1.0.1/Novashare-1.0.1-x64-Setup.exe">
-              Download Novashare ↓
+              Download for Windows ↓
             </a>
-            <a class="button button-secondary"
-               href="https://github.com/yashasvik14/Novashare-Releases/releases"
-               target="_blank" rel="noopener noreferrer">
-              All Releases
+
+            <a class="download-link"
+               href="https://github.com/yashasvik14/Novashare-Releases/releases/download/v1.0.1/Novashare-1.0.1-x86-Setup.exe">
+              Download 32-bit version
             </a>
+
+            <div class="requirements">
+              x64: Windows 10/11 64-bit<br>
+              x86: Windows 10 32-bit
+            </div>
           </div>
         </article>
       </div>
@@ -390,15 +425,17 @@
             <h3>Simple to Use</h3>
             <p>Designed to keep everyday tasks straightforward and accessible.</p>
           </article>
+
           <article class="info-card">
             <div class="symbol" aria-hidden="true">🛠️</div>
             <h3>Practical Tools</h3>
             <p>Applications focused on useful features and real-world needs.</p>
           </article>
+
           <article class="info-card">
             <div class="symbol" aria-hidden="true">🔄</div>
             <h3>Ongoing Updates</h3>
-            <p>Release information and downloads are published through GitHub.</p>
+            <p>Software is maintained and improved as new versions become available.</p>
           </article>
         </div>
       </div>
@@ -409,10 +446,9 @@
         <div class="about-box">
           <h2>About Lincean</h2>
           <p>
-            Lincean is a central directory for software projects and their
-            official releases. This website will grow as more applications
-            become available. Each download links to the corresponding
-            project's public GitHub release page.
+            Lincean is an independent software publisher focused on practical
+            desktop applications. Our goal is to create useful, reliable tools
+            that make everyday work easier.
           </p>
         </div>
       </div>
@@ -422,11 +458,6 @@
   <footer>
     <div class="container footer-content">
       <span>© <span id="year">2026</span> Lincean. All rights reserved.</span>
-      <span>
-        <a href="https://github.com/yashasvik14/lincean">Website source</a>
-        &nbsp;·&nbsp;
-        <a href="https://github.com/yashasvik14/Novashare-Releases/releases">Novashare releases</a>
-      </span>
     </div>
   </footer>
 
